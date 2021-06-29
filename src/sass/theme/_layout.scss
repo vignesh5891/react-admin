@@ -1,0 +1,460 @@
+.main-sidebar {
+	@include shadow;
+	@include main-sidebar;
+	@include theme(background-color, sidebar);
+	left: 0;
+}
+
+.main-sidebar,
+.main-navbar/*.navbar*/,
+.main-content,
+.main-footer {
+	transition: all 0.3s;
+}
+
+.sidebar-handler {
+	/*@include shadow;*/
+	z-index: 880;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 0px;
+	left: 250px;
+	width: 70px;
+	height: 65px;
+	padding: 15px;
+	// background-color: #6777ef;
+	color: white;
+	cursor: pointer;
+}
+
+body.sidebar-gone {
+	.main-sidebar {
+		left: -250px;
+	}
+	.sidebar-handler {
+		left: 5px;
+	}
+}
+
+body.sidebar-mini {
+	.hide-sidebar-mini {
+		display: none !important;
+	}
+	.sidebar-handler {
+		left: 60px;
+	}
+	.main-sidebar {
+		width: 65px;
+		height: 100%;
+		overflow: initial !important;
+		position: absolute;
+		@include shadow;
+		&:hover {
+			width: 250px;
+			position: fixed;
+			&:after {
+				width: 250px;
+			}
+			.sidebar-brand {
+				display: inline-block;
+			}
+			.sidebar-brand-sm {
+				display: none;
+			}
+			.metismenu {
+				padding: 0;
+				margin: 0;
+				white-space: nowrap;
+				.mm-collapse {
+					display: none;
+					&.mm-show {
+						display: block;
+						padding-left: 25px;
+					}
+				}
+				.mm-collapsing {
+					position: relative;
+					height: 0;
+					overflow: hidden;
+					transition-timing-function: ease;
+					transition-duration: 0.35s;
+					transition-property: height, visibility;
+				}
+				li {
+					transition: transform 0.2s, height 0.3s, color 0.3s, background-color 0.3s;
+					display: block;
+					&.menu-header {
+						padding: 3px 15px;
+						color: color_lighten(font, 20%);
+						font-size: 10px;
+						text-transform: uppercase;
+						letter-spacing: 1.3px;
+						font-weight: 600;
+						&:not(:first-child) {
+							margin-top: 10px;
+						}
+					}
+					a {
+						position: relative;
+						display: flex;
+						align-items: center;
+						height: 50px;
+						padding: 0 20px;
+						width: 100%;
+						letter-spacing: 0.3px;
+						color: color_lighten(font, 5%);
+						text-decoration: none;
+						.badge {
+							float: right;
+							padding: 5px 10px;
+							margin-top: 2px;
+						}
+						i {
+							width: 25px;
+							margin-right: 18px;
+							text-align: center;
+						}
+						span {
+							margin-top: 3px;
+							width: 100%;
+							display: block;
+						}
+						&:hover {
+							background-color: color_lighten(light, 6.5%);
+							color: color(primary);
+						}
+					}
+					&.mm-active {
+						> a {
+							box-shadow: unset;
+							color: color(primary);
+							font-weight: 600;
+							background-color: color_lighten(light, 6.5%);
+							&.has-arrow {
+								&:after {
+									transform: translate(0, -50%) rotate(90deg);
+								}
+							}
+						}
+
+						ul.mm-collapse {
+							//padding: 0 20px;
+							background-color: color_lighten(light, 6.5%);
+							position: unset;
+							box-shadow: unset;
+							width: 100%;
+							li.active {
+								display: block;
+								background-color: #eeeff1 !important;
+								> a.active {
+									color: color(primary);
+									background-color: transparent !important;
+									border-radius: 4px 0 0 4px;
+								}
+							}
+						}
+					}
+					a.has-arrow {
+						&:after {
+							@include dropdown-indicator();
+							color: color_lighten(font, 20.5%);
+						}
+					}
+				}
+			}
+		}
+
+		.sidebar-brand {
+			display: none;
+		}
+		.sidebar-brand-sm {
+			display: block;
+		}
+		.metismenu {
+			> li {
+				position: relative;
+				padding: 10px;
+				&.menu-header {
+					padding: 0;
+					font-size: 0;
+					height: 2px;
+				}
+				> a {
+					border-radius: 3px;
+					height: 45px;
+					padding: 0;
+					justify-content: center;
+					.ion,
+					.fas,
+					.far,
+					.fab,
+					.fal {
+						margin: 0;
+						font-size: 20px;
+					}
+					span {
+						display: none;
+					}
+					.badge {
+						padding: 5px;
+						position: absolute;
+						top: 4px;
+						right: 4px;
+						font-size: 10px;
+					}
+					&.has-arrow {
+						&:after {
+							content: initial;
+						}
+					}
+				}
+				&.mm-active {
+					> a {
+						@include icon-shadow(primary);
+						background-color: color(primary);
+						color: #fff;
+					}
+				}
+				ul.mm-collapse {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.navbar {
+		left: 65px;
+	}
+	.main-content,
+	.main-footer {
+		padding-left: 90px;
+	}
+}
+
+.main-sidebar {
+	.sidebar-brand {
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+		height: 60px;
+		line-height: 60px;
+		&.sidebar-brand-sm {
+			display: none;
+		}
+		a {
+			text-decoration: none;
+			text-transform: uppercase;
+			letter-spacing: 1.5px;
+			font-weight: 700;
+			color: color(dark);
+		}
+	}
+	.sidebar-user {
+		display: inline-block;
+		width: 100%;
+		padding: 10px;
+		margin-bottom: 10px;
+		.sidebar-user-picture {
+			float: left;
+			margin-right: 10px;
+			img {
+				width: 50px;
+				border-radius: 50%;
+			}
+		}
+	}
+	.metismenu {
+		padding: 0;
+		margin: 0;
+		white-space: nowrap;
+		.mm-collapse {
+			display: none;
+			&.mm-show {
+				display: block;
+				padding-left: 25px;
+			}
+		}
+		.mm-collapsing {
+			position: relative;
+			height: 0;
+			overflow: hidden;
+			transition-timing-function: ease;
+			transition-duration: 0.35s;
+			transition-property: height, visibility;
+		}
+		li {
+			display: block;
+			&.menu-header {
+				padding: 3px 15px;
+				color: color_lighten(font, 20%);
+				font-size: 10px;
+				text-transform: uppercase;
+				letter-spacing: 1.3px;
+				font-weight: 600;
+				&:not(:first-child) {
+					margin-top: 10px;
+				}
+			}
+			a {
+				position: relative;
+				display: flex;
+				align-items: center;
+				height: 50px;
+				padding: 0 20px;
+				width: 100%;
+				letter-spacing: 0.3px;
+				color: color_lighten(font, 5%);
+				text-decoration: none;
+				.badge {
+					float: right;
+					padding: 5px 10px;
+					margin-top: 2px;
+				}
+				i {
+					width: 25px;
+					margin-right: 18px;
+					text-align: center;
+					font-weight: 900;
+					font-size: 16px;
+				}
+				span {
+					margin-top: 3px;
+					width: 100%;
+				}
+				&:hover {
+					background-color: color_lighten(light, 6.5%);
+					color: color(primary);
+				}
+			}
+			&.mm-active {
+				> a {
+					color: color(primary);
+					font-weight: 600;
+					background-color: color_lighten(light, 6.5%);
+					&.has-arrow {
+						&:after {
+							transform: translate(0, -50%) rotate(90deg);
+						}
+					}
+				}
+
+				ul.mm-collapse {
+					background-color: color_lighten(light, 6.5%);
+					li.active {
+						> a.active {
+							color: color(primary);
+							background-color: color(light);
+							border-radius: 4px 0 0 4px;
+						}
+					}
+				}
+			}
+			a.has-arrow {
+				&:after {
+					@include dropdown-indicator();
+					color: color_lighten(font, 20.5%);
+				}
+			}
+		}
+	}
+}
+
+.main-content {
+	padding-left: 280px;
+	padding-right: 30px;
+	padding-top: 80px;
+	width: 100%;
+	position: relative;
+}
+
+.main-footer {
+	padding: 20px 30px 5px 280px;
+	margin-top: 40px;
+	color: color(muted);
+	border-top: 1px solid color(light);
+	display: inline-block;
+	width: 100%;
+	.footer-left {
+		float: left;
+	}
+	.footer-right {
+		float: right;
+	}
+}
+
+.simple-footer {
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+	.sidebar-gone-hide {
+		display: none !important;
+	}
+	.sidebar-gone-show {
+		display: block !important;
+	}
+	.main-sidebar {
+		position: fixed !important;
+		margin-top: 0 !important;
+		z-index: 891;
+	}
+	body.layout-2,
+	body.layout-3 {
+		.main-wrapper {
+			width: 100%;
+			padding: 0;
+			display: block;
+		}
+	}
+	.main-content {
+		padding-left: 30px;
+		padding-right: 30px;
+		width: 100% !important;
+	}
+	.main-footer {
+		padding-left: 30px;
+	}
+	body {
+		&.search-show {
+			.navbar {
+				z-index: 892;
+			}
+			overflow: hidden;
+		}
+		&.sidebar-show {
+			overflow: hidden;
+		}
+		&.search-show:before,
+		&.sidebar-show:before {
+			content: '';
+			position: fixed;
+			left: 0;
+			right: 0;
+			width: 100%;
+			height: 100%;
+			background-color: #000;
+			opacity: 0;
+			z-index: 891;
+			-webkit-animation-name: fadeinbackdrop;
+			animation-name: fadeinbackdrop;
+			-webkit-animation-duration: 1s;
+			animation-duration: 1s;
+			-webkit-animation-fill-mode: forwards;
+			animation-fill-mode: forwards;
+		}
+		@-webkit-keyframes fadeinbackdrop {
+			to {
+				opacity: 0.6;
+			}
+		}
+		@keyframes fadeinbackdrop {
+			to {
+				opacity: 0.6;
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+
+/** this section generates a theme map for each theme **/
+$themes: ();
+$themeValues: ();
+@import 'skins/lightSkin.scss';
+@include generateThemeMappings(light, $light);
+@import 'skins/darkSkin.scss';
+@include generateThemeMappings(dark, $dark);
+/** end theme generation **/

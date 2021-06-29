@@ -1,0 +1,110 @@
+/**
+ * SIGMA PORTAL UI
+ *
+ * A clean & modern React dashboard based on Bootstrap 4.
+ *
+ * @version	4.0.0
+ * @author 	George Tournas (Speedcast Greece R&D dept)
+ *
+ */
+
+@import './_functions';
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Variable
+ * 2. Mixin
+ * 3. Bootstrap Override
+ * 	  3.1 Misc
+ * 	  3.2 Form
+ * 	  3.3 List
+ * 	  3.4 Alert
+ * 	  3.5 Card
+ * 	  3.6 Table
+ * 	  3.7 Tooltip
+ * 	  3.8 Modal
+ * 	  3.9 Nav
+ * 	  3.10 Pagination
+ * 	  3.11 Badge
+ * 	  3.12 Button
+ * 	  3.13 Media
+ * 	  3.14 Breadcrumb
+ * 	  3.15 Accordion
+ * 	  3.16 Popover
+ * 	  3.17 Grid
+ * 	  3.18 Navbar
+ * 	  3.19 Dropdown
+ * 	  3.20 Tab
+ * 	  3.21 Progressbar
+ * 	  3.22 Jumbotron
+ * 	  3.23 Carousel
+ * 4. Theme Style
+ * 	  4.1 Misc
+ * 	  4.2 Section
+ * 	  4.3 Page
+ * 	  4.4 Layout
+ * 	  4.5 Animation
+ *
+ */
+
+/* 1. Variable */
+@import '_variable';
+
+//@import '_colors';
+
+/* import bootstrap to set changes */
+@import '~bootstrap/scss/bootstrap';
+
+/* 2. Mixin */
+@import '_mixin';
+@import '_colors';
+
+/* 3. Bootstrap Override */
+/* 3.1 Misc */
+@import 'override/_misc';
+
+/* 3.5 Card */
+@import 'override/_card';
+/* 3.6 Table */
+@import 'override/_table';
+
+/* 3.8 Modal */
+@import 'override/_modal';
+/* 3.9 Nav */
+@import 'override/_nav';
+
+/* 3.12 Button */
+@import 'override/_button';
+
+/* 3.14 Breadcrumb */
+@import 'override/_breadcrumb';
+
+/* 3.17 Grid */
+@import 'override/_grid';
+/* 3.18 Navbar */
+@import 'override/_navbar';
+/* 3.19 Dropdown */
+@import 'override/_dropdown';
+
+
+
+/* 4. Theme Style */
+/* 4.1 Misc */
+
+
+
+@import 'theme/misc';
+/* 4.2 Section */
+@import 'theme/section';
+/* 4.3 Page */
+@import 'theme/page';
+/* 4.4 Layout */
+@import 'theme/layout';
+/* 4.5 Animation */
+@import 'theme/animation';
+
+html {
+  @include generateThemeVariables;
+  height: 100%;
+}

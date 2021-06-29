@@ -1,0 +1,30 @@
+@import '../functions';
+$light: (
+	// Bootstrap colors overide
+	primary: color(primary),
+	secondary: color(secondary),
+	success: color(success),
+	info: clor(info),
+	warning: color(warning),
+	danger: color(danger),
+	light: color(light),
+	dark: color(dark),
+	//Layout colors
+	grey: color(grey),
+	whitesmoke: color(whitesmoke),
+	muted: color(muted),
+	body: color(body),
+	sidebar: color(white),
+	//
+	font: color(font),
+	cardBody: color(white),
+	topNavBackground: color(primary),
+	// Form Control
+	formcontrol_normal_background: color(formcontrol_normal_background),
+	formcontrol_normal_border: color(formcontrol_normal_border),
+	formcontrol_focus_background: color(formcontrol_focus_background),
+	formcontrol_focus_border: color(formcontrol_focus_border),
+	// Utilities
+	section_title_line: color(section_title_line),
+	
+);
